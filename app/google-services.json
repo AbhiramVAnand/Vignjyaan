@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "153132413512",
+    "firebase_url": "https://vignjyaan-default-rtdb.firebaseio.com",
+    "project_id": "vignjyaan",
+    "storage_bucket": "vignjyaan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153132413512:android:8916359773fa9a93329e7d",
+        "android_client_info": {
+          "package_name": "com.abhiram.vignjyaan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153132413512-pkogpkuj2sdm4gpbu8g0k066o0kmc94e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAViqnZfP8GehudrVLC3mjXXkw2yVyvtes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153132413512-pkogpkuj2sdm4gpbu8g0k066o0kmc94e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
