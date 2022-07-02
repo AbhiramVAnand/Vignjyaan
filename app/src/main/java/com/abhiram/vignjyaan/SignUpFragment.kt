@@ -44,31 +44,22 @@ class SignUpFragment : Fragment() {
                 Toast.makeText(context,"Enter Mail ID!",Toast.LENGTH_LONG).show()
             }else if(usrName==" "){
                 Toast.makeText(context,"Name can't be empty!",Toast.LENGTH_LONG).show()
-            }else if(semm==" "){
-                Toast.makeText(context,"Semester can't be empty!",Toast.LENGTH_LONG).show()
             }else if(emailID != " ") {
-                val len: Int = emailID.length
-                val check: CharSequence = emailID.substring(len - 12, len)
-                pref!!.edit().putString("name",usrName).apply()
-                if (check == "gecskp.ac.in") {
-                    auth.createUserWithEmailAndPassword(emailID, pass).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            val user = auth.currentUser
-                            if (user != null) {
-                                user.sendEmailVerification().addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        fragmentTransaction.replace(R.id.frag_view,VerificationFragment()).commit()
-                                    }else{
-                                        Toast.makeText(context,"Can't Send Verification Mail!", Toast.LENGTH_LONG).show()
-                                    }
+                auth.createUserWithEmailAndPassword(emailID, pass).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        if (user != null) {
+                            user.sendEmailVerification().addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Toast.makeText(context,"Verification Mail Send!\nVerify and login", Toast.LENGTH_LONG).show()
+                                }else{
+                                    Toast.makeText(context,"Can't Send Verification Mail!", Toast.LENGTH_LONG).show()
                                 }
                             }
-                        }else{
-                            Toast.makeText(context,"Account Already Exists\nPlease Verify Email and Login!", Toast.LENGTH_LONG).show()
                         }
+                    }else{
+                        Toast.makeText(context,"Account Already Exists\nPlease Verify Email and Login!", Toast.LENGTH_LONG).show()
                     }
-                } else {
-                    Toast.makeText(context,"Use College Mail!", Toast.LENGTH_LONG).show()
                 }
             }
         }

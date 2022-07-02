@@ -24,8 +24,8 @@ class InfoFragment : Fragment() {
             openURL.data = Uri.parse("mailto:anandabhiram0.ar@gmail.com")
             startActivity(openURL)
         }
-        var materials : ImageView = inflate.findViewById(R.id.mateb)
-        var home : ImageView = inflate.findViewById(R.id.homeb)
+        val materials : ImageView = inflate.findViewById(R.id.mateb)
+        val home : ImageView = inflate.findViewById(R.id.homeb)
         val fragmentManager = parentFragmentManager
         val fragTrans = fragmentManager.beginTransaction()
         materials.setOnClickListener(){

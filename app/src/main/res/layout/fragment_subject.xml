@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/bg"
-    tools:context=".SemesterFragment">
+    tools:context=".SubjectFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:paddingBottom="18sp">
 
         <ImageView
-            android:id="@+id/back"
-            android:layout_width="46dp"
-            android:layout_height="49dp"
-            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:id="@+id/backbu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.046" />
+            app:layout_constraintVertical_bias="0.046"
+            android:layout_width="46dp"
+            android:layout_height="49dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel" />
 
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/sem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.409"
+            app:layout_constraintStart_toEndOf="@+id/backbu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.044"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="32sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.409"
-            app:layout_constraintStart_toEndOf="@+id/back"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.044" />
+            android:textSize="32sp" />
 
         <Button
-            android:id="@+id/s1"
+            android:id="@+id/sub1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sem"
+            app:layout_constraintVertical_bias="0.0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
@@ -49,102 +54,96 @@
             android:layout_marginBottom="504dp"
             android:background="@drawable/category"
             android:padding="10sp"
-            android:text="S1"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/type"
-            app:layout_constraintVertical_bias="0.0" />
+            android:text=" "
+            android:textSize="18sp" />
 
         <Button
-            android:id="@+id/s2"
+            android:id="@+id/sub2"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="32sp"
             android:layout_marginLeft="32sp"
             android:layout_marginTop="32sp"
-            android:text="S2"
+            android:layout_marginRight="32sp"
             android:background="@drawable/category"
             android:padding="10sp"
+            android:text=" "
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/s1"
+            app:layout_constraintTop_toBottomOf="@+id/sub1"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/s3"
+            android:id="@+id/sub3"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="32sp"
             android:layout_marginLeft="32sp"
             android:layout_marginTop="32sp"
-            android:text="S3"
+            android:layout_marginRight="32sp"
             android:background="@drawable/category"
             android:padding="10sp"
+            android:text=" "
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/s2"
+            app:layout_constraintTop_toBottomOf="@+id/sub2"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/s4"
+            android:id="@+id/sub4"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="32sp"
             android:layout_marginTop="32sp"
             android:layout_marginRight="32sp"
-            android:layout_marginLeft="32sp"
-            android:text="S4"
-            android:padding="10sp"
             android:background="@drawable/category"
+            android:padding="10sp"
+            android:text=" "
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/s3"
+            app:layout_constraintTop_toBottomOf="@+id/sub3"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/s5"
+            android:id="@+id/sub5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="24dp"
             android:layout_marginRight="32sp"
-            android:layout_marginBottom="504dp"
+            android:layout_marginBottom="140dp"
             android:background="@drawable/category"
             android:padding="10sp"
-            android:text="S5"
+            android:text=" "
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/s4"
-            app:layout_constraintVertical_bias="0.074" />
+            app:layout_constraintTop_toBottomOf="@+id/sub4"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/s6"
-            android:layout_width="0sp"
+            android:id="@+id/sub6"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
             android:layout_marginRight="32sp"
+            android:layout_marginBottom="52dp"
             android:background="@drawable/category"
             android:padding="10sp"
-            android:text="S6"
+            android:text=" "
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/s5"
-            app:layout_constraintVertical_bias="0.295" />
+            app:layout_constraintTop_toBottomOf="@+id/sub5"
+            app:layout_constraintVertical_bias="1.0" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</ScrollView>

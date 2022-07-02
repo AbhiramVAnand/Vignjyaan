@@ -7,20 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 
-class SyllabusFragment : Fragment() {
+class DeptFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val inflate = inflater.inflate(R.layout.fragment_syllabus, container, false)
+        val inflate = inflater.inflate(R.layout.fragment_dept, container, false)
+        val back : ImageView = inflate.findViewById(R.id.backdept)
         val fragmentManager = parentFragmentManager
-        val fragTrans = fragmentManager.beginTransaction()
-        val back : ImageView = inflate.findViewById(R.id.back)
+        val fragmentTransaction = fragmentManager.beginTransaction()
 
         back.setOnClickListener{
-            fragTrans.replace(R.id.frag_view, HomeFragment()).commit()
+            fragmentTransaction.replace(R.id.frag_view,HomeFragment()).commit()
         }
         return inflate
     }

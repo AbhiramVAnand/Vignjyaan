@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,7 +25,6 @@ class MaterialsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         val inflate = inflater.inflate(R.layout.fragment_materials, container, false)
         val fragmentManager = parentFragmentManager
         val fragTrans = fragmentManager.beginTransaction()
@@ -38,98 +36,24 @@ class MaterialsFragment : Fragment() {
         val notes : ImageView = inflate.findViewById(R.id.notes)
         var nameUser = context?.getSharedPreferences("com.abhiram.vignjyaan", Context.MODE_PRIVATE)
         var sem = nameUser!!.getString("semester"," ")
-        Log.d("Error","$sem")
         gate.setOnClickListener(){
-            var myRef = database.getReference("gate")
-            myRef.addListenerForSingleValueEvent(
-                object: ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val value = snapshot.value
-                        val url = value.toString()
-                        Log.e("abhiram", "Value is: " + value)
-                        val pdfViewer : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        startActivity(pdfViewer)
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
-                    }
-                }
-            )
+            fragTrans.replace(R.id.frag_view,GateFragment()).commit()
         }
         notes.setOnClickListener(){
-            var myRef = database.getReference("notes")
-            myRef.addListenerForSingleValueEvent(
-                object: ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val value = snapshot.value
-                        val url = value.toString()
-                        Log.e("abhiram", "Value is: " + value)
-                        val pdfViewer : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        startActivity(pdfViewer)
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
-                    }
-                }
-            )
+            val fragment = SemesterFragment.newInstance("Notes")
+            fragTrans.replace(R.id.frag_view, fragment).commit()
         }
         syllabus.setOnClickListener(){
-            var myRef = database.getReference("syllabus")
-            myRef.addListenerForSingleValueEvent(
-                object: ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val value = snapshot.value
-                        val url = value.toString()
-                        Log.e("abhiram", "Value is: " + value)
-                        val pdfViewer : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        startActivity(pdfViewer)
-
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
-                    }
-                }
-            )
-        //            fragTrans.replace(R.id.frag_view, SyllabusFragment()).commit()
+            val fragment = SemesterFragment.newInstance("Syllabus")
+            fragTrans.replace(R.id.frag_view, fragment).commit()
         }
         textbook.setOnClickListener(){
-            var myRef = database.getReference("textbook")
-            myRef.addListenerForSingleValueEvent(
-                object: ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val value = snapshot.value
-                        val url = value.toString()
-                        Log.e("abhiram", "Value is: " + value)
-                        val pdfViewer : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        startActivity(pdfViewer)
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
-                    }
-                }
-            )
+            val fragment = SemesterFragment.newInstance("TextBooks")
+            fragTrans.replace(R.id.frag_view, fragment).commit()
         }
         qpaper.setOnClickListener(){
-            var myRef = database.getReference("previous")
-            myRef.addListenerForSingleValueEvent(
-                object: ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val value = snapshot.value
-                        val url = value.toString()
-                        Log.e("abhiram", "Value is: " + value)
-                        val pdfViewer : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        startActivity(pdfViewer)
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
-                    }
-                }
-            )
+            val fragment = SemesterFragment.newInstance("Previous")
+            fragTrans.replace(R.id.frag_view, fragment).commit()
         }
         back.setOnClickListener{
             fragTrans.replace(R.id.frag_view, HomeFragment()).commit()

@@ -1,5 +1,6 @@
 package com.abhiram.vignjyaan
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,16 +22,13 @@ class SplashFragment : Fragment() {
 
         var fragmentManager = parentFragmentManager
         var fragmentTransaction = fragmentManager.beginTransaction()
-
+        val flagSp = context?.getSharedPreferences("com.abhiram.vignjyaan", Context.MODE_PRIVATE)
+        val flag = flagSp!!.getInt("flag",0)
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
         Timer().schedule(3000) {
-            if (user != null) {
-                if (user.isEmailVerified) {
-                    fragmentTransaction.replace(R.id.frag_view, HomeFragment()).commit()
-                }else{
-                    fragmentTransaction.replace(R.id.frag_view, VerificationFragment()).commit()
-                }
+            if (flag==1) {
+                fragmentTransaction.replace(R.id.frag_view, HomeFragment()).commit()
             } else {
                 fragmentTransaction.replace(R.id.frag_view, WelcomeFragment()).commit()
             }
