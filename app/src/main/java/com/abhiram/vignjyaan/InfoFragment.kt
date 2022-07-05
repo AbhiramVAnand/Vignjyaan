@@ -24,15 +24,21 @@ class InfoFragment : Fragment() {
             openURL.data = Uri.parse("mailto:anandabhiram0.ar@gmail.com")
             startActivity(openURL)
         }
+        val connect : TextView = inflate.findViewById(R.id.link)
+        connect.setOnClickListener(){
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://abhiramvanand.github.io/")
+            startActivity(openURL)
+        }
         val materials : ImageView = inflate.findViewById(R.id.mateb)
         val home : ImageView = inflate.findViewById(R.id.homeb)
         val fragmentManager = parentFragmentManager
         val fragTrans = fragmentManager.beginTransaction()
         materials.setOnClickListener(){
-            fragTrans.replace(R.id.frag_view,MaterialsFragment()).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,MaterialsFragment()).addToBackStack("flow").commit()
         }
         home.setOnClickListener(){
-            fragTrans.replace(R.id.frag_view,HomeFragment()).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,HomeFragment()).addToBackStack("flow").commit()
         }
         return inflate
     }

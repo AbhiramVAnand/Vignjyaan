@@ -30,14 +30,11 @@ class SemesterFragment : Fragment() {
         val fragmentManager = parentFragmentManager
         val fragTrans = fragmentManager.beginTransaction()
         val back : ImageView = inflate.findViewById(R.id.back)
+        Log.e("","values: $mat")
         type.text = mat.toString()
-        val path : String = mat.toString()
         back.setOnClickListener{
             fragTrans.replace(R.id.frag_view, HomeFragment()).commit()
         }
-
-        val nameUser = context?.getSharedPreferences("com.abhiram.vignjyaan", Context.MODE_PRIVATE)
-        var sem = nameUser!!.getString("path"," ")
 //        start
         val s1 : Button = inflate.findViewById(R.id.s1)
         val s2 : Button = inflate.findViewById(R.id.s2)
@@ -47,28 +44,28 @@ class SemesterFragment : Fragment() {
         val s6 : Button = inflate.findViewById(R.id.s6)
 
         s1.setOnClickListener(){
-            val fragment = SubjectFragment.newInstance("S1","$path")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            val fragment = SubjectFragment.newInstance("S1","$mat")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         s2.setOnClickListener(){
-            val fragment = SubjectFragment.newInstance("S2","$path")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            val fragment = SubjectFragment.newInstance("S2","$mat")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         s3.setOnClickListener(){
-            val fragment = SubjectFragment.newInstance("S3","$path")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            val fragment = SubjectFragment.newInstance("S3","$mat")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         s4.setOnClickListener(){
-            val fragment = SubjectFragment.newInstance("S4","$path")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            val fragment = SubjectFragment.newInstance("S4","$mat")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         s5.setOnClickListener(){
-            val fragment = SubjectFragment.newInstance("S5","$path")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            val fragment = SubjectFragment.newInstance("S5","$mat")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         s6.setOnClickListener(){
-            val fragment = SubjectFragment.newInstance("S6","$path")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            val fragment = SubjectFragment.newInstance("S6","$mat")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
 //        end
         return inflate

@@ -28,9 +28,9 @@ class SplashFragment : Fragment() {
         val user = auth.currentUser
         Timer().schedule(3000) {
             if (flag==1) {
-                fragmentTransaction.replace(R.id.frag_view, HomeFragment()).commit()
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, HomeFragment()).commit()
             } else {
-                fragmentTransaction.replace(R.id.frag_view, WelcomeFragment()).commit()
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, WelcomeFragment()).commit()
             }
         }
         return inflate

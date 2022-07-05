@@ -54,13 +54,13 @@ class HomeFragment : Fragment() {
         val materials : ImageView = inflate.findViewById(R.id.mateb)
         val info : ImageView = inflate.findViewById(R.id.infob)
         materials.setOnClickListener(){
-            fragTrans.replace(R.id.frag_view,MaterialsFragment()).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,MaterialsFragment()).addToBackStack("flow").commit()
         }
         info.setOnClickListener(){
-            fragTrans.replace(R.id.frag_view,InfoFragment()).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,InfoFragment()).addToBackStack("flow").commit()
         }
         abt.setOnClickListener {
-            fragTrans.replace(R.id.frag_view,DeptFragment()).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,DeptFragment()).addToBackStack("flow").commit()
         }
         return inflate
     }

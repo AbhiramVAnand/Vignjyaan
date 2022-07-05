@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.ListView
 
 class DeptFragment : Fragment() {
 
@@ -16,12 +18,11 @@ class DeptFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val inflate = inflater.inflate(R.layout.fragment_dept, container, false)
-        val back : ImageView = inflate.findViewById(R.id.backdept)
+        val back: ImageView = inflate.findViewById(R.id.backdept)
         val fragmentManager = parentFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-
-        back.setOnClickListener{
-            fragmentTransaction.replace(R.id.frag_view,HomeFragment()).commit()
+        back.setOnClickListener {
+            fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).add(R.id.frag_view, HomeFragment()).addToBackStack("flow").commit()
         }
         return inflate
     }

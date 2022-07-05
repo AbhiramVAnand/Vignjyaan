@@ -37,26 +37,27 @@ class MaterialsFragment : Fragment() {
         var nameUser = context?.getSharedPreferences("com.abhiram.vignjyaan", Context.MODE_PRIVATE)
         var sem = nameUser!!.getString("semester"," ")
         gate.setOnClickListener(){
-            fragTrans.replace(R.id.frag_view,GateFragment()).commit()
+            val fragment = FilesFragment.newInstance("", "","","Gate")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         notes.setOnClickListener(){
             val fragment = SemesterFragment.newInstance("Notes")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         syllabus.setOnClickListener(){
             val fragment = SemesterFragment.newInstance("Syllabus")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         textbook.setOnClickListener(){
             val fragment = SemesterFragment.newInstance("TextBooks")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         qpaper.setOnClickListener(){
             val fragment = SemesterFragment.newInstance("Previous")
-            fragTrans.replace(R.id.frag_view, fragment).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, fragment).addToBackStack("flow").commit()
         }
         back.setOnClickListener{
-            fragTrans.replace(R.id.frag_view, HomeFragment()).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, HomeFragment()).addToBackStack("flow").commit()
         }
         return inflate
     }

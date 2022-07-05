@@ -31,6 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
+            android:layout_marginTop="50sp"
             android:layout_marginRight="32sp"
             android:background="@drawable/category"
             android:padding="10sp"
@@ -47,7 +48,7 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
-            android:layout_marginTop="32sp"
+            android:layout_marginTop="15sp"
             android:layout_marginRight="32sp"
             android:background="@drawable/category"
             android:padding="10sp"
@@ -64,7 +65,7 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
-            android:layout_marginTop="32sp"
+            android:layout_marginTop="15sp"
             android:layout_marginRight="32sp"
             android:background="@drawable/category"
             android:padding="10sp"
@@ -81,7 +82,7 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
-            android:layout_marginTop="32sp"
+            android:layout_marginTop="15sp"
             android:layout_marginRight="32sp"
             android:background="@drawable/category"
             android:padding="10sp"
@@ -98,9 +99,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32sp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="15sp"
             android:layout_marginRight="32sp"
-            android:layout_marginBottom="132dp"
             android:background="@drawable/category"
             android:padding="10sp"
             android:text="Module 5"
@@ -108,7 +108,24 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mod4" />
+            app:layout_constraintTop_toBottomOf="@+id/mod4"
+            app:layout_constraintVertical_bias="0.061" />
+
+        <Button
+            android:id="@+id/oth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginRight="32sp"
+            android:background="@drawable/category"
+            android:padding="10sp"
+            android:text="Others"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mod5" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

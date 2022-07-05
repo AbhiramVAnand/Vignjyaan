@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:layout_marginBottom="15sp"
 android:background="@drawable/bg">
 
 <!--    <ScrollView-->
@@ -38,7 +39,7 @@ android:background="@drawable/bg">
             app:layout_constraintHorizontal_bias="0.687"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.042" />
+            app:layout_constraintVertical_bias="0.015" />
 
         <TextView
             android:id="@+id/textView9"
@@ -52,7 +53,7 @@ android:background="@drawable/bg">
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.048" />
+            app:layout_constraintVertical_bias="0.018" />
 
         <TextView
             android:id="@+id/teach"
@@ -63,7 +64,7 @@ android:background="@drawable/bg">
             android:padding="5sp"
             android:text="Teaching Staffs"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.046"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,16 +74,20 @@ android:background="@drawable/bg">
             android:id="@+id/teachList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/textbx"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginRight="32sp"
+            android:background="@drawable/category"
             android:padding="15sp"
-            android:text=" "
+            android:text="@string/teaching"
             android:textColor="@color/black"
             android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/teach" />
+            app:layout_constraintTop_toBottomOf="@+id/teach"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tech"
@@ -93,7 +98,7 @@ android:background="@drawable/bg">
             android:padding="5sp"
             android:text="Technical Staffs"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.046"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,23 +106,24 @@ android:background="@drawable/bg">
 
         <TextView
             android:id="@+id/techList"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="436dp"
-            android:background="@drawable/textbx"
-            android:padding="15sp"
-            android:text=" "
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginRight="32sp"
+            android:layout_marginBottom="10sp"
+            android:text="@string/technical"
+            android:background="@drawable/category"
             android:textColor="@color/black"
+            android:padding="15sp"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tech"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/tech" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    </ScrollView>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

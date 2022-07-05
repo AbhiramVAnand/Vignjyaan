@@ -24,13 +24,13 @@ import com.google.firebase.ktx.Firebase
 class SubjectFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var sem: String? = null
-    private var path: String? = null
+    private var type: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             sem = it.getString("sem")
-            path = it.getString("path")
+            type = it.getString("type")
         }
     }
 
@@ -54,10 +54,8 @@ class SubjectFragment : Fragment() {
         val s5b : Button = inflate.findViewById(R.id.sub5)
         val s6b : Button = inflate.findViewById(R.id.sub6)
         val babu : ImageView = inflate.findViewById(R.id.backbu)
-        path = "$path/$sem"
         val sembx : TextView = inflate.findViewById(R.id.sem)
-        Log.e("sem","$path")
-        Log.e("sem","$sem")
+        Log.e("sem","$type/$sem")
         sembx.text = sem.toString()
         val db = Firebase.firestore
         val docRef = db.collection("subjects").document("$sem")
@@ -83,31 +81,31 @@ class SubjectFragment : Fragment() {
             }
         }
         babu.setOnClickListener{
-            fragTrans.replace(R.id.frag_view, HomeFragment()).commit()
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, HomeFragment()).commit()
         }
         s1b.setOnClickListener {
-            val fragment = ModulesFragment.newInstance("$sub1","$path")
-            fragTrans.replace(R.id.frag_view,fragment).commit()
+            val fragment = ModulesFragment.newInstance("$sub1","$sem","$type")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,fragment).addToBackStack("flow").commit()
         }
         s6b.setOnClickListener {
-            val fragment = ModulesFragment.newInstance("$sub6","$path")
-            fragTrans.replace(R.id.frag_view,fragment).commit()
+            val fragment = ModulesFragment.newInstance("$sub6","$sem","$type")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,fragment).addToBackStack("flow").commit()
         }
         s2b.setOnClickListener {
-            val fragment = ModulesFragment.newInstance("$sub2","$path")
-            fragTrans.replace(R.id.frag_view,fragment).commit()
+            val fragment = ModulesFragment.newInstance("$sub2","$sem","$type")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,fragment).addToBackStack("flow").commit()
         }
         s3b.setOnClickListener {
-            val fragment = ModulesFragment.newInstance("$sub3","$path")
-            fragTrans.replace(R.id.frag_view,fragment).commit()
+            val fragment = ModulesFragment.newInstance("$sub3","$sem","$type")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,fragment).addToBackStack("flow").commit()
         }
         s4b.setOnClickListener {
-            val fragment = ModulesFragment.newInstance("$sub4","$path")
-            fragTrans.replace(R.id.frag_view,fragment).commit()
+            val fragment = ModulesFragment.newInstance("$sub4","$sem","$type")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,fragment).addToBackStack("flow").commit()
         }
         s5b.setOnClickListener {
-            val fragment = ModulesFragment.newInstance("$sub5","$path")
-            fragTrans.replace(R.id.frag_view,fragment).commit()
+            val fragment = ModulesFragment.newInstance("$sub5","$sem","$type")
+            fragTrans.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view,fragment).addToBackStack("path").commit()
         }
         // Inflate the layout for this fragment
         return inflate
@@ -120,7 +118,7 @@ class SubjectFragment : Fragment() {
             SubjectFragment().apply {
                 arguments = Bundle().apply {
                     putString("sem", param1)
-                    putString("path", param2)
+                    putString("type", param2)
                 }
             }
     }

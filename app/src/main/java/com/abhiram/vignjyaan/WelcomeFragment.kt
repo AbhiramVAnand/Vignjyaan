@@ -22,7 +22,7 @@ class WelcomeFragment : Fragment() {
             flagSp!!.edit().putInt("flag",1).apply()
             val fragmentManager = parentFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.frag_view, HomeFragment()).commit()
+            fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right).replace(R.id.frag_view, HomeFragment()).commit()
         }
         return inflate
     }
