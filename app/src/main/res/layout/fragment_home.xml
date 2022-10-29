@@ -119,7 +119,9 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins"
                 android:padding="5sp"
-                android:text="To impart theoretical foundations in Electronics and Communication and instill practical expertise in the related domains and modern tool usage.\nTo develop the ability to work together with professional and ethical responsibility, with effective communication skills."
+                android:text="To impart theoretical foundations in Electronics and Communication engineering and instill practical expertise in the related domains and modern tool usage
+\nTo inculcate professional and ethical responsibility for teamwork
+\nTo enhance communication skills"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="15sp"

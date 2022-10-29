@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
     val db = Firebase.firestore
     var noti : String = " "
     var notif = StringBuilder()
-
+    var i : Int = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,20 +37,24 @@ class HomeFragment : Fragment() {
         val abt : TextView = inflate.findViewById(R.id.more)
         val docRef = db.collection("Notifications").document("Notifications")
         val source = Source.SERVER
-        docRef.get(source).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                // Document found in the offline cache
-                val document = task.result
-                notif.append(document.get("1") as String).append("\n").append(document.get("2") as String).append("\n")
-                notif.append(document.get("3") as String).append("\n").append(document.get("4") as String).append("\n")
-                notif.append(document.get("5") as String)
-                noti = notif.toString()
-                notices.text = noti
-                Log.d(TAG, "$noti",task.exception)
-            } else {
-                Log.e("Abhi", "Cached get failed: ")
+            docRef.get(source).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Document found in the offline cache
+                    val document = task.result
+                    notif.append(document.get("1") as String).append("\n")
+                        .append(document.get("2") as String).append("\n")
+                    notif.append(document.get("3") as String).append("\n")
+                        .append(document.get("4") as String).append("\n")
+                    notif.append(document.get("5") as String)
+                    noti = notif.toString()
+                    notif.clear()
+                    notices.text = noti
+                    i += 1
+                    Log.d(TAG, "$noti \n,$i", task.exception)
+                } else {
+                    Log.e("Abhi", "Cached get failed: ")
+                }
             }
-        }
         val materials : ImageView = inflate.findViewById(R.id.mateb)
         val info : ImageView = inflate.findViewById(R.id.infob)
         materials.setOnClickListener(){
