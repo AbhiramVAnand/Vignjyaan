@@ -1,11 +1,11 @@
 package com.abhiram.vignjyaan
 
-import android.content.Context
-import android.content.SharedPreferences
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import java.util.*
-import kotlin.concurrent.schedule
+import android.view.Window
+import android.view.WindowManager
+import com.abhiram.vignjyaan.startup.SplashFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var fragmentManager = supportFragmentManager
         var fragmentTransaction = fragmentManager.beginTransaction()
-
         fragmentTransaction.replace(R.id.frag_view, SplashFragment()).commit()
     }
 }
