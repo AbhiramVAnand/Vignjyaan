@@ -29,14 +29,39 @@ class HomeFragment : Fragment() {
         val inflate = inflater.inflate(R.layout.fragment_home, container, false)
         requireActivity().window.navigationBarColor = resources.getColor(R.color.white)
         val fragmentManager = parentFragmentManager
-
-        val test : ImageView = inflate.findViewById(R.id.test)
         val fragTrans = fragmentManager.beginTransaction()
+//--------------Buttons-------------------
+        val note : ImageView = inflate.findViewById(R.id.note)
+        val syllabus : ImageView = inflate.findViewById(R.id.sylbs)
+        val text : ImageView = inflate.findViewById(R.id.tbooks)
+        val prev : ImageView = inflate.findViewById(R.id.prev)
+        val dept : ImageView = inflate.findViewById(R.id.dept)
+        val others : ImageView = inflate.findViewById(R.id.others)
+        val settings : ImageView = inflate.findViewById(R.id.settings)
+
+// --------------------------------------------
+
+//---------------Print name-------------------
         val flagSp = context?.getSharedPreferences("com.abhiram.vignjyaan", Context.MODE_PRIVATE)
         val name : String = flagSp!!.getString("name"," ").toString()
         val studentName : TextView = inflate.findViewById(R.id.stuname)
         studentName.text = "Hi,\n$name"
-        val docRef = db.collection("Notifications").document("Notifications")
+// ------------------------------------------
+        settings.setOnClickListener{
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, SettingsFragment()).addToBackStack("path").commit()
+        }
+        note.setOnClickListener {
+            fragTrans.replace(R.id.frag_view, DbFetchFragment()).addToBackStack("path").commit()
+        }
+        return inflate
+    }
+}
+
 //        val source = Source.SERVER
 //            docRef.get(source).addOnCompleteListener { task ->
 //                if (task.isSuccessful) {
@@ -55,11 +80,3 @@ class HomeFragment : Fragment() {
 //                    Log.e("Abhi", "Cached get failed: ")
 //                }
 //            }
-
-
-        test.setOnClickListener {
-            fragTrans.replace(R.id.frag_view, DbFetchFragment()).addToBackStack("path").commit()
-        }
-        return inflate
-    }
-}

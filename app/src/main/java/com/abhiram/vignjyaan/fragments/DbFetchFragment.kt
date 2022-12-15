@@ -11,6 +11,7 @@ import com.abhiram.vignjyaan.adapters.File
 import com.abhiram.vignjyaan.database.AppDatabase
 import com.abhiram.vignjyaan.database.MaterialsList
 import com.abhiram.vignjyaan.database.Subjects
+import com.abhiram.vignjyaan.startup.WelcomeFragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -78,8 +79,15 @@ class DbFetchFragment : Fragment() {
                         val temp : Subjects = gson.fromJson(json,Subjects::class.java)
                         addSub(temp)
                     }
+                    val fragmentManager = parentFragmentManager
+                    val fragTrans = fragmentManager.beginTransaction()
+                    fragTrans.setCustomAnimations(
+                        R.anim.enter_from_right,
+                        R.anim.exit_to_left,
+                        R.anim.enter_from_left,
+                        R.anim.exit_to_right
+                    ).replace(R.id.frag_view, HomeFragment()).commit()
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
                 }

@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purp">#9C85FA</color>
     <color name="purpD">#7455F7</color>
+    <color name="blur">#55000000</color>
 </resources>

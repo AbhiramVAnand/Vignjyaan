@@ -28,6 +28,7 @@ class NameFragment : Fragment() {
             if (name.text.toString() != "") {
                 flagSp!!.edit().putString("name", name.text.toString()).apply()
                 flagSp!!.edit().putInt("isfirst", 1).apply()
+                flagSp!!.edit().putInt("fetch", 0).apply()
                 val fragmentManager = parentFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
                 fragmentManager.popBackStack()
