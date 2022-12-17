@@ -47,6 +47,8 @@ class HomeFragment : Fragment() {
         val studentName : TextView = inflate.findViewById(R.id.stuname)
         studentName.text = "Hi,\n$name"
 // ------------------------------------------
+
+//  -------------Settings-------------
         settings.setOnClickListener{
             fragTrans.setCustomAnimations(
                 R.anim.enter_from_right,
@@ -55,9 +57,18 @@ class HomeFragment : Fragment() {
                 R.anim.exit_to_right
             ).replace(R.id.frag_view, SettingsFragment()).addToBackStack("path").commit()
         }
-        note.setOnClickListener {
-            fragTrans.replace(R.id.frag_view, DbFetchFragment()).addToBackStack("path").commit()
+//  -------------dept.-------------
+        dept.setOnClickListener {
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, DepartmentFragment()).addToBackStack("path").commit()
         }
+//  -------------Notes-------------
+
+
         return inflate
     }
 }

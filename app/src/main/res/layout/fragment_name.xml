@@ -61,7 +61,7 @@
         android:backgroundTint="@color/white"
         android:paddingLeft="20sp"
         android:paddingRight="20sp"
-        android:text="Get Started"
+        android:text="Continue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

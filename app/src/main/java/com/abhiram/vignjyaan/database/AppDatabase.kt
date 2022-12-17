@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.abhiram.vignjyaan.database.MaterialsList
 
-@Database(entities = [MaterialsList :: class,Subjects::class], version = 1)
+@Database(entities = [MaterialsList :: class,Subjects::class, Faculties::class], version = 1)
 abstract class AppDatabase : RoomDatabase(){
 
     abstract fun appDao() : AppDao
