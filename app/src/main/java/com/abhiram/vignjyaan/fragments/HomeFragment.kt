@@ -77,8 +77,45 @@ class HomeFragment : Fragment() {
             ).replace(R.id.frag_view, OthersFragment()).addToBackStack("path").commit()
         }
 //  -------------Notes-------------
-
-
+        note.setOnClickListener {
+            val fragment = SemesterFragment.newInstance("Note")
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+        }
+//  -------------Syllabus-------------
+        syllabus.setOnClickListener {
+            val fragment = SemesterFragment.newInstance("Syllabus")
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+        }
+//  -------------Previous-------------
+        prev.setOnClickListener {
+            val fragment = SemesterFragment.newInstance("Previous")
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+        }
+//  -------------Text-------------
+        text.setOnClickListener {
+            val fragment = SemesterFragment.newInstance("Textbook")
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+        }
         return inflate
     }
 }

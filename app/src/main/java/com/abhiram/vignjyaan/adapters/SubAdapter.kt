@@ -7,18 +7,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.abhiram.vignjyaan.R
 import com.abhiram.vignjyaan.database.Faculties
 import com.abhiram.vignjyaan.database.MaterialsList
+import com.abhiram.vignjyaan.database.Subjects
+import com.abhiram.vignjyaan.fragments.FileFragment
 
-class CardAdapter(private val mList: List<MaterialsList>, val context: Context) : RecyclerView.Adapter<CardAdapter.ViewHolder>(){
+class SubAdapter(private val mList: List<Subjects>, val context: Context,val type : String,val fragTrans : FragmentTransaction) : RecyclerView.Adapter<SubAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflates the card_view_design view
-        // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card, parent, false)
         return ViewHolder(view)
@@ -28,11 +28,15 @@ class CardAdapter(private val mList: List<MaterialsList>, val context: Context) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val ItemsViewModel = mList[position]
-        holder.name.text = ItemsViewModel.name
-        holder.view.setOnClickListener {
-            val link: String = ItemsViewModel.link
-            val pdfViewer : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
-            context.startActivity(pdfViewer)
+        holder.name.text = ItemsViewModel.subName
+        holder.name.setOnClickListener {
+            val fragment = FileFragment.newInstance(type,ItemsViewModel.subCode)
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
         }
     }
 
@@ -44,7 +48,6 @@ class CardAdapter(private val mList: List<MaterialsList>, val context: Context) 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val name : TextView = ItemView.findViewById(R.id.crdname)
-        val view : LinearLayout = ItemView.findViewById(R.id.card)
     }
 
 }
