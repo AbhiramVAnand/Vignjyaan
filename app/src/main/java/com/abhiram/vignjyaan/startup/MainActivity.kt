@@ -1,11 +1,8 @@
-package com.abhiram.vignjyaan
+package com.abhiram.vignjyaan.startup
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
-import com.abhiram.vignjyaan.startup.SplashFragment
+import com.abhiram.vignjyaan.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

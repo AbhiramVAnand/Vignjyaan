@@ -22,7 +22,6 @@ class FacultyFragment : Fragment() {
     private var techfac : MutableList<Faculties> = ArrayList()
     private var faculty : MutableList<Faculties> = ArrayList()
     private var tech : MutableList<Faculties> = ArrayList()
-    private lateinit var type : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         appDb = AppDatabase.getDatabse(requireContext())
@@ -36,6 +35,7 @@ class FacultyFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val inflate =inflater.inflate(R.layout.fragment_faculty, container, false)
+        requireActivity().window.navigationBarColor = resources.getColor(R.color.purpD)
         appDb = AppDatabase.getDatabse(requireContext())
         var recyclerview : RecyclerView = inflate.findViewById(R.id.recyclerview)
         var recyclerView2 : RecyclerView = inflate.findViewById(R.id.recyclerview2)

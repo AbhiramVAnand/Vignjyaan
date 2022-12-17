@@ -62,6 +62,8 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     kapt 'androidx.room:room-compiler:2.4.3'
 
+//    implementation 'com.github.afreakyelf:Pdf-Viewer:v1.0.7'
+
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.13.2'

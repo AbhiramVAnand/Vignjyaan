@@ -21,6 +21,7 @@ class DepartmentFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val inflate = inflater.inflate(R.layout.fragment_department, container, false)
+        requireActivity().window.navigationBarColor = resources.getColor(R.color.white)
         val fragmentManager = parentFragmentManager
         val fragTrans = fragmentManager.beginTransaction()
 

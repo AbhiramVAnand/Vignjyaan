@@ -66,6 +66,16 @@ class HomeFragment : Fragment() {
                 R.anim.exit_to_right
             ).replace(R.id.frag_view, DepartmentFragment()).addToBackStack("path").commit()
         }
+//  -------------others------------
+//        https://pdfhost.io/edit?doc=b3262456-5779-4fa3-8343-265c1e7e92ea
+        others.setOnClickListener {
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, OthersFragment()).addToBackStack("path").commit()
+        }
 //  -------------Notes-------------
 
 

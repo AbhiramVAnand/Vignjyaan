@@ -19,7 +19,6 @@ class FacultyAdapter(private val mList: List<Faculties>, val context: Context) :
         // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.staff, parent, false)
-        Log.e("Made","Yes")
         return ViewHolder(view)
     }
 

@@ -14,6 +14,9 @@ interface AppDao {
     @Query("SELECT * FROM faculties WHERE type LIKE :type")
     suspend fun getFac(type:String) : MutableList<Faculties>
 
+    @Query("SELECT * FROM materials WHERE type LIKE :type ORDER BY name ASC")
+    suspend fun getFile(type:String) : MutableList<MaterialsList>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(file: MaterialsList )
 
