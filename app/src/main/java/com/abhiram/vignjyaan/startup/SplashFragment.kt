@@ -50,12 +50,11 @@ class SplashFragment : Fragment() {
             fetchSub()
             fetchFaculty()
             flagSp!!.edit().putInt("fetch", fetch+1).apply()
-        }else if(fetch==8){
+        }else if(fetch==3){
             flagSp!!.edit().putInt("fetch", 0).apply()
         }else{
             flagSp!!.edit().putInt("fetch", fetch+1).apply()
         }
-        Log.e("fetch", fetch.toString())
         Timer().schedule(3000) {
             if (flag==1) {
                 fragmentTransaction.setCustomAnimations(
@@ -81,20 +80,19 @@ class SplashFragment : Fragment() {
         val path = "Materials"
         var myRef = database.getReference("$path")
         val gson : Gson = Gson()
-
+        var j : Int = 0
         myRef.addListenerForSingleValueEvent(
             object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (i in snapshot.children){
                         val file : Map<String,String> = i.value as Map<String, String>
-                        Log.e("file",file.toString())
                         json = gson.toJson(file)
                         val temp : File = gson.fromJson(json, File::class.java)
-                        files.add(temp)
+                        val material : MaterialsList = MaterialsList(temp.Subcode,temp.Type,temp.Sem,temp.Module,temp.Link,"$j")
+                        j++
+                        addFile(material)
                     }
-                    test()
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
                 }
@@ -113,7 +111,6 @@ class SplashFragment : Fragment() {
                     var j : Int = 0
                     for (i in snapshot.children){
                         val faculty : Map<String,String> = i.value as Map<String, String>
-                        Log.e("file",i.toString())
                         json = gson.toJson(faculty)
                         val temp : Faculty = gson.fromJson(json, Faculty::class.java)
                         val fac : Faculties = Faculties(temp.name,temp.type,temp.mail,temp.designation,j)
@@ -121,7 +118,6 @@ class SplashFragment : Fragment() {
                         addFaculty(fac)
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
                 }
@@ -140,7 +136,6 @@ class SplashFragment : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (i in snapshot.children){
                         val file : Map<String,String> = i.value as Map<String, String>
-                        Log.e("file",file.toString())
                         json = gson.toJson(file)
                         val temp : Subjects = gson.fromJson(json, Subjects::class.java)
                         addSub(temp)
@@ -153,18 +148,6 @@ class SplashFragment : Fragment() {
         )
     }
 
-    fun test(){
-        for (i in files){
-            var sub: String = i.Subcode
-            var type : String = i.Type
-            val sem: Int = i.Sem
-            var mod : Int = i.Module
-            var link : String = i.Link
-            val name: String = i.Name
-            val material : MaterialsList = MaterialsList(sub,type,sem,mod,link,name)
-            addFile(material)
-        }
-    }
     private fun addFile(file : MaterialsList){
         GlobalScope.launch(Dispatchers.IO) {
             appDb.appDao().add(file)

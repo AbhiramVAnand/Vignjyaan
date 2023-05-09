@@ -1,6 +1,7 @@
 package com.abhiram.vignjyaan.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,6 +33,7 @@ class FileFragment : Fragment() {
         }
         appDb = AppDatabase.getDatabse(requireContext())
         list = get(type.toString(), subcode.toString())
+        Log.e("filesilaan","yes")
     }
 
     override fun onCreateView(
@@ -47,7 +49,7 @@ class FileFragment : Fragment() {
         appDb = AppDatabase.getDatabse(requireContext())
         var recyclerview : RecyclerView = inflate.findViewById(R.id.filecrv)
         recyclerview.layoutManager = LinearLayoutManager(context)
-        var adapter = context?.let { CardAdapter(list,it) }
+        var adapter = context?.let { CardAdapter(list,it,type.toString()) }
         recyclerview.adapter = adapter
         return inflate
     }

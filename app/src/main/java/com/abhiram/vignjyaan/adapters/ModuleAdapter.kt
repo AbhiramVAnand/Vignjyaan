@@ -1,24 +1,18 @@
 package com.abhiram.vignjyaan.adapters
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.abhiram.vignjyaan.R
-import com.abhiram.vignjyaan.database.Faculties
-import com.abhiram.vignjyaan.database.MaterialsList
+import com.abhiram.vignjyaan.fragments.NotesFragment
 
-class CardAdapter(private val mList: List<MaterialsList>, val context: Context,val type:String) : RecyclerView.Adapter<CardAdapter.ViewHolder>(){
+class ModuleAdapter(val context: Context, val type : String,val subcode : String, val fragTrans : FragmentTransaction) : RecyclerView.Adapter<ModuleAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflates the card_view_design view
-        // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card, parent, false)
         return ViewHolder(view)
@@ -26,25 +20,29 @@ class CardAdapter(private val mList: List<MaterialsList>, val context: Context,v
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val ItemsViewModel = mList[position]
         val num = position+1
-        holder.name.text = "$type $num"
-        holder.view.setOnClickListener {
-            val link: String = ItemsViewModel.link
-            val pdfViewer : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
-            context.startActivity(pdfViewer)
+        holder.name.text = "Module $num"
+        holder.name.setOnClickListener {
+            Log.e("ModuleAdapter","hii")
+            val fragment = NotesFragment.newInstance(type,subcode,num)
+            fragTrans.setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+            Log.e("num",num.toString())
         }
     }
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
-        return mList.size
+        return 5
     }
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val name : TextView = ItemView.findViewById(R.id.crdname)
-        val view : LinearLayout = ItemView.findViewById(R.id.card)
     }
 
 }

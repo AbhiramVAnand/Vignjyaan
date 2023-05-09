@@ -1,19 +1,14 @@
 package com.abhiram.vignjyaan.adapters
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.abhiram.vignjyaan.fragments.ModuleFragment
 import com.abhiram.vignjyaan.R
-import com.abhiram.vignjyaan.database.Faculties
-import com.abhiram.vignjyaan.database.MaterialsList
 import com.abhiram.vignjyaan.database.Subjects
 import com.abhiram.vignjyaan.fragments.FileFragment
 
@@ -30,13 +25,23 @@ class SubAdapter(private val mList: List<Subjects>, val context: Context,val typ
         val ItemsViewModel = mList[position]
         holder.name.text = ItemsViewModel.subName
         holder.name.setOnClickListener {
-            val fragment = FileFragment.newInstance(type,ItemsViewModel.subCode)
-            fragTrans.setCustomAnimations(
-                R.anim.enter_from_right,
-                R.anim.exit_to_left,
-                R.anim.enter_from_left,
-                R.anim.exit_to_right
-            ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+            if(type=="Note") {
+                val fragment = ModuleFragment.newInstance(type, ItemsViewModel.subCode)
+                fragTrans.setCustomAnimations(
+                    R.anim.enter_from_right,
+                    R.anim.exit_to_left,
+                    R.anim.enter_from_left,
+                    R.anim.exit_to_right
+                ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+            }else{
+                val fragment = FileFragment.newInstance(type, ItemsViewModel.subCode)
+                fragTrans.setCustomAnimations(
+                    R.anim.enter_from_right,
+                    R.anim.exit_to_left,
+                    R.anim.enter_from_left,
+                    R.anim.exit_to_right
+                ).replace(R.id.frag_view, fragment).addToBackStack("path").commit()
+            }
         }
     }
 

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.abhiram.vignjyaan.R
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.lang.StringBuilder
@@ -37,7 +38,7 @@ class HomeFragment : Fragment() {
         val prev : ImageView = inflate.findViewById(R.id.prev)
         val dept : ImageView = inflate.findViewById(R.id.dept)
         val others : ImageView = inflate.findViewById(R.id.others)
-        val settings : ImageView = inflate.findViewById(R.id.settings)
+        val settings : MaterialButton = inflate.findViewById(R.id.settings)
 
 // --------------------------------------------
 

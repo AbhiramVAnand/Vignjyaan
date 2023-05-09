@@ -1,8 +1,6 @@
 package com.abhiram.vignjyaan.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.abhiram.vignjyaan.adapters.File
 
 
 @Dao
@@ -23,6 +21,9 @@ interface AppDao {
     @Query("SELECT * FROM materials WHERE type LIKE :type AND sub LIKE :sub ORDER BY name ASC")
     suspend fun getFiles(type:String,sub:String) : MutableList<MaterialsList>
 
+    @Query("SELECT * FROM materials WHERE type LIKE :type AND sub LIKE :sub AND module LIKE :module ORDER BY name ASC")
+    suspend fun getNotes(type:String, sub:String, module: Int?) : MutableList<MaterialsList>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(file: MaterialsList )
 
@@ -31,6 +32,7 @@ interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFaculty(faculty: Faculties )
+
 //    @Query("INSERT INTO subjects VALUES(:sem, :name, :code, NULL)")
 //    fun addSub(sem : Int,name : String,code : String )
 //

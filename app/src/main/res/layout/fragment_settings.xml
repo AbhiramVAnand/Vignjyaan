@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,86 +7,116 @@
     tools:context=".fragments.SettingsFragment"
     android:orientation="vertical"
     android:background="@drawable/splashbg">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="150sp"
-        android:layout_marginTop="30sp"
-        android:src="@drawable/deptlogo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/poppins"
-        android:text="v2.0.0"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.0"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/namechange"
+        android:layout_marginBottom="32sp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40sp"
-            android:text="Change Name"
-            android:textColor="@color/black_light"
-            android:textAllCaps="false"
-            android:paddingTop="8sp"
-            android:paddingBottom="8sp"
-            android:layout_marginLeft="35sp"
-            android:layout_marginRight="35sp"
-            android:backgroundTint="@color/white"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/contactdev"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
-            android:text="Contact Developer"
-            android:textColor="@color/black_light"
-            android:textAllCaps="false"
-            android:paddingTop="8sp"
-            android:paddingBottom="8sp"
-            android:layout_marginLeft="35sp"
-            android:layout_marginRight="35sp"
-            android:backgroundTint="@color/white"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:layout_marginTop="30sp"
+                android:src="@drawable/deptlogo" />
 
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/poppins"
+                android:text="@string/version"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:layout_marginLeft="35sp"
+                android:layout_marginRight="35sp"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="@string/about"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/credits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="Credits"
+                android:textColor="@color/black_light"
+                android:textAllCaps="false"
+                android:paddingTop="8sp"
+                android:paddingBottom="8sp"
+                android:layout_marginLeft="35sp"
+                android:layout_marginRight="35sp"
+                android:backgroundTint="@color/white"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/namechange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Change Name"
+                android:textColor="@color/black_light"
+                android:textAllCaps="false"
+                android:paddingTop="8sp"
+                android:paddingBottom="8sp"
+                android:layout_marginLeft="35sp"
+                android:layout_marginRight="35sp"
+                android:backgroundTint="@color/white"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/contactdev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Contact Developer"
+                android:textColor="@color/black_light"
+                android:textAllCaps="false"
+                android:paddingTop="8sp"
+                android:paddingBottom="8sp"
+                android:layout_marginLeft="35sp"
+                android:layout_marginRight="35sp"
+                android:backgroundTint="@color/white"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20sp"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/insta"
+                    android:layout_width="38sp"
+                    android:layout_height="38sp"
+                    android:backgroundTint="@color/transaparent"
+                    android:src="@drawable/instagram"
+                    android:layout_marginRight="10sp"/>
+                <ImageView
+                    android:id="@+id/linked"
+                    android:layout_width="38sp"
+                    android:layout_height="38sp"
+                    android:backgroundTint="@color/transaparent"
+                    android:layout_marginLeft="10sp"
+                    android:src="@drawable/linked"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:layout_marginBottom="12sp"
         android:fontFamily="@font/poppins"
+        android:gravity="center"
         android:text="@string/made"
         android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.968" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="14sp" />
+</RelativeLayout>
